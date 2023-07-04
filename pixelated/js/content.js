@@ -4,8 +4,7 @@ export class Content {
 	DOM = {
 		el: null,
 		canvasWrap: null,
-		canvas: null,
-		inner: null
+		canvas: null
 	};
 	// the image source/url
 	imageSrc;
@@ -33,7 +32,6 @@ export class Content {
 		// Initialize DOM elements
 		this.DOM.el = DOM_el;
 		this.DOM.canvasWrap = this.DOM.el.querySelector('.canvas-wrap');
-		this.DOM.inner = this.DOM.el.querySelector('.content__inner');
 
 		// Extract the image source from the background image style
 		this.imageSrc = this.DOM.canvasWrap.style.backgroundImage.match(/\((.*?)\)/)[1].replace(/('|")/g, '');
@@ -93,10 +91,6 @@ export class Content {
 				scrub: true
 			}
 		})
-		.to(this.DOM.inner, {
-			ease: 'none',
-			yPercent: -100
-		});
 
 		// show canvasWrap when the element enters the viewport
         ScrollTrigger.create({
